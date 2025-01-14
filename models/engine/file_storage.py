@@ -10,6 +10,7 @@ from models.state import State
 from models.place import Place
 from models.review import Review
 
+
 class FileStorage:
     """Deserialization & Serialization of instances to a JSON file"""
     __file_path = "file.json"
@@ -35,7 +36,9 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r') as f:
                 for key, value in json.load(f).items():
-                    self.__objects = {key: self.classes()[value["__class__"]](**value)}
+                    self.__objects = {
+                        key: self.classes()[value["__class__"]](**value)
+                        }
         except FileNotFoundError:
             pass
 
