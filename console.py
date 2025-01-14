@@ -90,7 +90,6 @@ class HBNBCommand(cmd.Cmd):
         elif len(arg_list) == 1:
             print("** instance id missing **")
             return
-
         object_key = "{}.{}".format(arg_list[0], arg_list[1])
 
         if object_key not in objdict:
