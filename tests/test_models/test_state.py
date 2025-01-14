@@ -1,39 +1,38 @@
 #!/usr/bin/python3
-
-
-"""Unittest for State Class."""
+"""
+Test documentation
+"""
 
 import unittest
-
 from models.state import State
-
 from models.base_model import BaseModel
 
 
 class TestState(unittest.TestCase):
-    """Test cases State class."""
+    """Test the State class"""
 
     def test_instance(self):
-        """test instance."""
-        state = State()
-        self.assertIsInstance(state, State)
-
-    def test_is_class(self):
-        """test instance."""
-        state = State()
-        self.assertEqual(str(type(state)),
-                         "<class 'models.state.State'>")
+        """Test instance"""
+        obj = State()
+        self.assertIsInstance(obj, State)
 
     def test_is_subclass(self):
-        """test is_subclass."""
-        state = State()
-        self.assertTrue(issubclass(type(state), BaseModel))
+        """Test is subclass"""
+        obj = State()
+        self.assertTrue(issubclass(type(obj), BaseModel))
 
-    def test_attr(self):
-        """test is_subclass."""
-        state = State()
-        self.assertIsNotNone(state.id)
-        self.assertEqual(state.name, "")
+    def test_name(self):
+        """Test name"""
+        obj = State()
+        self.assertEqual(obj.name, "")
+        obj.name = "Betty"
+        self.assertEqual(obj.name, "Betty")
+
+    def test_str(self):
+        """Test str"""
+        obj = State()
+        string = "[State] ({}) {}".format(obj.id, obj.__dict__)
+        self.assertEqual(str(obj), string)
 
 
 if __name__ == "__main__":

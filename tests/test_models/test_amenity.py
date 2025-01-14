@@ -1,37 +1,32 @@
 #!/usr/bin/python3
-
-"""Unittest for Amenity Class."""
+"""
+Module documentation
+"""
 
 import unittest
-
-from models.amenity import Amenity
-
 from models.base_model import BaseModel
+from models.amenity import Amenity
 
 
 class TestAmenity(unittest.TestCase):
-    """Test cases for  Amenity class."""
+    """ Test the Amenity class """
 
     def test_instance(self):
-        """test instance."""
-        amenity = Amenity()
-        self.assertIsInstance(amenity, Amenity)
-
-    def test_is_class(self):
-        """test instance."""
-        amenity = Amenity()
-        self.assertEqual(str(type(amenity)),
-                         "<class 'models.amenity.Amenity'>")
+        """ Test instance """
+        obj = Amenity()
+        self.assertIsInstance(obj, Amenity)
 
     def test_is_subclass(self):
-        """test is_subclass."""
+        """test the instance of sub classes"""
         amenity = Amenity()
         self.assertTrue(issubclass(type(amenity), BaseModel))
 
-    def test_attr(self):
-        """test is_subclass."""
+    def test_name(self):
+        """test name"""
         amenity = Amenity()
         self.assertEqual(amenity.name, "")
+        amenity.name = "Wifi"
+        self.assertEqual(amenity.name, "Wifi")
         self.assertIsNotNone(amenity.id)
 
 

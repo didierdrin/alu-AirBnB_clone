@@ -1,40 +1,35 @@
 #!/usr/bin/python3
-
-"""Unittest for Amenity Class."""
+"""
+Module documentation
+"""
 
 import unittest
-
-from models.city import City
-
 from models.base_model import BaseModel
+from models.city import City
 
 
 class TestCity(unittest.TestCase):
-    """Test cases City class."""
+    """ Test the CIty Class """
 
     def test_instance(self):
-        """test instance."""
-        city = City()
-        self.assertIsInstance(city, City)
-
-    def test_is_class(self):
-        """test instance."""
-        city = City()
-        self.assertEqual(str(type(city)),
-                         "<class 'models.city.City'>")
+        """ Test instance """
+        obj = City()
+        self.assertIsInstance(obj, City)
 
     def test_is_subclass(self):
-        """test is_subclass."""
+        """test the instance of sub classes"""
         city = City()
         self.assertTrue(issubclass(type(city), BaseModel))
 
     def test_name(self):
-        """test is_subclass."""
+        """test name"""
         city = City()
         self.assertEqual(city.name, "")
+        city.name = "Kigali"
+        self.assertEqual(city.name, "Kigali")
 
-    def test_state_id(self):
-        """test is_subclass."""
+    def test_city_id(self):
+        """test city id"""
         city = City()
         self.assertEqual(city.state_id, "")
 
